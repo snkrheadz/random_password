@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['aki.d.sc@gmail.com']
 
   spec.summary       = 'Generate strong passwords'
-  spec.description   = 'PasswordGenerator is a strong password generator that help your way to generate secure password quickly.'
+  spec.description   = '🔑 PasswordGenerator is a strong password generator that help your way to generate secure password quickly.'
   spec.homepage      = 'https://github.com/akinrt/password_generator'
   spec.license       = 'MIT'
 

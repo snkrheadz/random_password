@@ -6,18 +6,19 @@ module PasswordGenerator
     DIGITS  = [*'0'..'9'].freeze
     SYMBOLS = %w(! " # $ % & ' ( ) * + , - . / \\ : ; ? @ [ ] ^ _ ` { | } ~).freeze
 
-    def initialize(length:, digits:, symbols:)
-      update(length: length, digits: digits, symbols: symbols)
+    def initialize(**options)
+      update(options)
     end
 
     def generate
       password_letters.shuffle(random: Random.new).join[0...@length]
     end
 
-    def update(length:, digits:, symbols:)
-      @length  = length.to_i
-      @digits  = digits.to_i
-      @symbols = symbols.to_i
+    def update(**options)
+      @length  = options[:length].to_i
+      @digits  = options[:digits].to_i
+      @symbols = options[:symbols].to_i
+      self
     end
 
     private

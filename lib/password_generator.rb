@@ -4,7 +4,11 @@ require 'password_generator/version'
 require 'password_generator/base'
 
 module PasswordGenerator
-  def self.new(length:, digits:, symbols:)
-    PasswordGenerator::Base.new(length: length, digits: digits, symbols: symbols)
+  def self.new(**options)
+    PasswordGenerator::Base.new(options)
+  end
+
+  def self.generate(**options)
+    self.new(options).generate
   end
 end
