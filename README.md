@@ -1,5 +1,7 @@
 # 🔑 RandomPassword
 
+[![Gem Version](https://badge.fury.io/rb/random_password.svg)](https://badge.fury.io/rb/random_password)
+
 🔑 RandomPassword is a strong password generator that help your way to generate secure password quickly.
 
 
