@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module PasswordGenerator
+module RandomPassword
   class Base
     LETTERS = [*'a'..'z', *'A'..'Z'].freeze
     DIGITS  = [*'0'..'9'].freeze

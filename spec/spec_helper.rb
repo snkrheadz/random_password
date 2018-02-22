@@ -1,5 +1,5 @@
 require 'bundler/setup'
-require 'password_generator'
+require 'random_password'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

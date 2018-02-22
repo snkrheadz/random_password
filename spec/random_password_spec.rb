@@ -1,6 +1,6 @@
-RSpec.describe PasswordGenerator do
+RSpec.describe RandomPassword do
   describe 'VERSION' do
-    subject { PasswordGenerator::VERSION }
+    subject { described_class::VERSION }
 
     it { is_expected.to eq '0.1.0' }
   end

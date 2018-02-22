@@ -1,5 +1,5 @@
-RSpec.describe PasswordGenerator::Base do
-  let(:password_generator) { described_class.new(length: 64, digits: 10, symbols: 10) }
+RSpec.describe RandomPassword::Base do
+  let(:random_password) { described_class.new(length: 64, digits: 10, symbols: 10) }
 
   describe 'constants' do
     describe 'LETTERS' do
@@ -23,42 +23,42 @@ RSpec.describe PasswordGenerator::Base do
 
   describe '#generate' do
     describe '#is_a? Sting' do
-      subject { password_generator.generate }
+      subject { random_password.generate }
 
       it { is_expected.to be_an_instance_of(String) }
     end
 
     describe '#size' do
-      subject { password_generator.generate.size }
+      subject { random_password.generate.size }
 
       context 'when length is 64' do
-        before { password_generator.update(length: 64) }
+        before { random_password.update(length: 64) }
         it { is_expected.to eq(64) }
       end
 
       context 'when length is 10' do
-        before { password_generator.update(length: 10) }
+        before { random_password.update(length: 10) }
         it { is_expected.to eq(10) }
       end
     end
 
     describe '#update' do
-      subject { password_generator.update(length: 12) }
+      subject { random_password.update(length: 12) }
 
       it { is_expected.to be_an_instance_of(described_class) }
     end
 
     describe 'instance valiables' do
       context 'when update all available options' do
-        before { password_generator.update(length: 12, digits: 3, symbols: 7) }
-        it { expect(password_generator.instance_variable_get(:@length)).to eq(12) }
-        it { expect(password_generator.instance_variable_get(:@digits)).to eq(3) }
-        it { expect(password_generator.instance_variable_get(:@symbols)).to eq(7) }
+        before { random_password.update(length: 12, digits: 3, symbols: 7) }
+        it { expect(random_password.instance_variable_get(:@length)).to eq(12) }
+        it { expect(random_password.instance_variable_get(:@digits)).to eq(3) }
+        it { expect(random_password.instance_variable_get(:@symbols)).to eq(7) }
       end
 
       context 'when update symbols to 5' do
-        before { password_generator.update(symbols: 5) }
-        subject { password_generator.update(symbols: 5).instance_variable_get(:@symbols) }
+        before { random_password.update(symbols: 5) }
+        subject { random_password.update(symbols: 5).instance_variable_get(:@symbols) }
 
         it { is_expected.to eq(5) }
       end
@@ -66,7 +66,7 @@ RSpec.describe PasswordGenerator::Base do
 
     describe 'private' do
       describe '#password_letters' do
-        subject { password_generator.send(:password_letters) }
+        subject { random_password.send(:password_letters) }
 
         it { is_expected.to be_an_instance_of(Array) }
       end
@@ -74,7 +74,7 @@ RSpec.describe PasswordGenerator::Base do
       describe '#random_letter' do
         it 'is a letter which in LETTERS' do
           101.times do
-            expect(described_class::LETTERS).to include(password_generator.send(:random_letter))
+            expect(described_class::LETTERS).to include(random_password.send(:random_letter))
           end
         end
       end
@@ -82,7 +82,7 @@ RSpec.describe PasswordGenerator::Base do
       describe '#random_digit' do
         it 'is a letter which in DIGITS' do
           101.times do
-            expect(described_class::DIGITS).to include(password_generator.send(:random_digit))
+            expect(described_class::DIGITS).to include(random_password.send(:random_digit))
           end
         end
       end
@@ -90,7 +90,7 @@ RSpec.describe PasswordGenerator::Base do
       describe '#random_symbol' do
         it 'is a letter which in SYMBOLS' do
           101.times do
-            expect(described_class::SYMBOLS).to include(password_generator.send(:random_symbol))
+            expect(described_class::SYMBOLS).to include(random_password.send(:random_symbol))
           end
         end
       end

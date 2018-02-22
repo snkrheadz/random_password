@@ -15,15 +15,15 @@ Metrics/BlockLength:
 # Configuration parameters: Max.
 RSpec/NestedGroups:
   Exclude:
-    - 'spec/password_generator/base_spec.rb'
+    - 'spec/random_password/base_spec.rb'
 
 # Offense count: 2
 Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'lib/password_generator.rb'
-    - 'lib/password_generator/base.rb'
+    - 'lib/random_password.rb'
+    - 'lib/random_password/base.rb'
 
 # Offense count: 13
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
