@@ -24,20 +24,20 @@ module PasswordGenerator
 
     def password_letters
       passwords = []
-      passwords += (0...@digits).map { get_a_digit }
-      passwords += (0...@symbols).map { get_a_symbol }
-      passwords += (0...(@length - @digits - @symbols)).map { get_a_letter }
+      passwords.concat((0...@digits).map { random_digit })
+      passwords.concat((0...@symbols).map { random_symbol })
+      passwords.concat((0...(@length - @digits - @symbols)).map { random_letter })
     end
 
-    def get_a_letter
+    def random_letter
       LETTERS[rand(LETTERS.size)]
     end
 
-    def get_a_digit
+    def random_digit
       DIGITS[rand(DIGITS.size)]
     end
 
-    def get_a_symbol
+    def random_symbol
       SYMBOLS[rand(SYMBOLS.size)]
     end
   end
