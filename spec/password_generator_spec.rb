@@ -12,12 +12,8 @@ RSpec.describe PasswordGenerator do
   end
 
   describe '#generate' do
-    let(:password_generator) { described_class.new(length: 64, digits: 10, symbols: 10).generate }
+    subject { described_class.new(length: 64, digits: 10, symbols: 10).generate }
 
-    describe '#size' do
-      subject { password_generator.size }
-
-      it { is_expected.to eq 64 }
-    end
+    it { is_expected.to be_an_instance_of(String) }
   end
 end

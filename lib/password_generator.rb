@@ -9,6 +9,6 @@ module PasswordGenerator
   end
 
   def self.generate(**options)
-    self.new(options).generate
+    new(options).generate
   end
 end
