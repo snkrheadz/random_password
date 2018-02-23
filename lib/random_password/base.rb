@@ -11,7 +11,7 @@ module RandomPassword
     end
 
     def generate
-      password_letters.shuffle(random: Random.new).join[0...@length]
+      password_letters.shuffle(random: Random.new).join[0, @length]
     end
 
     def update(**options)
@@ -25,21 +25,21 @@ module RandomPassword
 
     def password_letters
       passwords = []
-      passwords.concat((0...@digits).map { random_digit })
-      passwords.concat((0...@symbols).map { random_symbol })
-      passwords.concat((0...(@length - @digits - @symbols)).map { random_letter })
+      passwords.concat(@digits.times.map { random_digit })
+      passwords.concat(@symbols.times.map { random_symbol })
+      passwords.concat((@length - @digits - @symbols).times.map { random_letter })
     end
 
     def random_letter
-      LETTERS[rand(LETTERS.size)]
+      LETTERS.sample
     end
 
     def random_digit
-      DIGITS[rand(DIGITS.size)]
+      DIGITS.sample
     end
 
     def random_symbol
-      SYMBOLS[rand(SYMBOLS.size)]
+      SYMBOLS.sample
     end
   end
 end

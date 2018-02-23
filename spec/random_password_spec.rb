@@ -2,7 +2,7 @@ RSpec.describe RandomPassword do
   describe 'VERSION' do
     subject { described_class::VERSION }
 
-    it { is_expected.to eq '0.1.0' }
+    it { is_expected.to eq '0.1.1' }
   end
 
   describe '#new' do

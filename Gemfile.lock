@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    random_password (0.1.0)
+    random_password (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -44,8 +44,8 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
-  random_password!
   rake (~> 10.0)
+  random_password!
   rspec (~> 3.0)
   rubocop (~> 0.52.1)
   rubocop-rspec (~> 1.22.2)
