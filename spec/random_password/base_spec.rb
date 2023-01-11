@@ -30,6 +30,12 @@ RSpec.describe RandomPassword::Base do
       it { is_expected.to be_an_instance_of(String) }
     end
 
+    describe 'match chars' do
+      subject { random_password.generate }
+
+      it { is_expected.to match(%r{[a-zA-Z0-9!"#$%&'()*+,-./\\:;<=>?@\[\]\^_`\{|\}~]{64}}) }
+    end
+
     describe '#size' do
       subject { random_password.generate.size }
 

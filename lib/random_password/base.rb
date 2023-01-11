@@ -6,8 +6,8 @@ module RandomPassword
     DIGITS  = [*'0'..'9'].freeze
     SYMBOLS = %w(! " # $ % & ' ( ) * + , - . / \\ : ; ? @ [ ] ^ _ ` { | } ~).freeze
 
-    def initialize(**options)
-      update(options)
+    def initialize(*_, **options)
+      update(**options)
     end
 
     def generate
