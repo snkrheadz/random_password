@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe RandomPassword::Base do
   let(:random_password) { described_class.new(length: 64, digits: 10, symbols: 10) }
 
@@ -14,7 +16,7 @@ RSpec.describe RandomPassword::Base do
       it { is_expected.to eq [*'0'..'9'] }
     end
 
-    describe 'LETTERS' do
+    describe 'SYMBOLS' do
       subject { described_class::SYMBOLS }
 
       it { is_expected.to eq %w(! " # $ % & ' ( ) * + , - . / \\ : ; ? @ [ ] ^ _ ` { | } ~) }
@@ -33,11 +35,13 @@ RSpec.describe RandomPassword::Base do
 
       context 'when length is 64' do
         before { random_password.update(length: 64) }
+
         it { is_expected.to eq(64) }
       end
 
       context 'when length is 10' do
         before { random_password.update(length: 10) }
+
         it { is_expected.to eq(10) }
       end
     end
@@ -51,14 +55,16 @@ RSpec.describe RandomPassword::Base do
     describe 'instance valiables' do
       context 'when update all available options' do
         before { random_password.update(length: 12, digits: 3, symbols: 7) }
+
         it { expect(random_password.instance_variable_get(:@length)).to eq(12) }
         it { expect(random_password.instance_variable_get(:@digits)).to eq(3) }
         it { expect(random_password.instance_variable_get(:@symbols)).to eq(7) }
       end
 
       context 'when update symbols to 5' do
-        before { random_password.update(symbols: 5) }
         subject { random_password.update(symbols: 5).instance_variable_get(:@symbols) }
+
+        before { random_password.update(symbols: 5) }
 
         it { is_expected.to eq(5) }
       end

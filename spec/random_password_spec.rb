@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe RandomPassword do
   describe 'VERSION' do
     subject { described_class::VERSION }
